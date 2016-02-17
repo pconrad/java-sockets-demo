@@ -1,0 +1,21 @@
+Source: 
+
+
+  http://download.oracle.com/javase/tutorial/networking/sockets
+
+   http://download.oracle.com/javase/tutorial/networking/sockets/clientServer.html
+
+Modified by P. Conrad to add command line parameter for host in client program.
+
+
+To run: 
+
+  On server side: java KnockKnockServer
+  On client side: java KnockKnockClient [serverhostname]
+
+The [serverhostname] is optional--it defaults to csil.cs.ucsb.edu
+
+
+
+  
+
