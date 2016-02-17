@@ -36,19 +36,31 @@ public class KnockKnockClient {
 
 
 
-    public static void main(String[] args) throws IOException {
+	
+   public static void main(String[] args) throws IOException {
 
 	String hostname = "csil.cs.ucsb.edu";
-
+	final int DEFAULT_PORT = 4444;
+	int port = DEFAULT_PORT;
+	
 	if (args.length >= 1)
 	    hostname = args[0];
 
+	if (args.length >= 2) {
+	    try {
+		port = Integer.parseInt(args[1]);
+	    } catch (NumberFormatException nfe) {
+		System.err.println("Error: " + args[1] + " not a valid port");
+		System.exit(1);
+	    };
+	}
+	
         Socket kkSocket = null;
         PrintWriter out = null;
         BufferedReader in = null;
 
         try {
-            kkSocket = new Socket(hostname, 4444);
+            kkSocket = new Socket(hostname, port);
             out = new PrintWriter(kkSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(kkSocket.getInputStream()));
         } catch (UnknownHostException e) {
